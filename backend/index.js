@@ -1,10 +1,14 @@
-import express from "express";
+import express, { json } from "express";
 import cors from "cors";
+import studentRoute from "./routes/StudentRoute";
 
 const app = express();
+
+app.use("/students", studentRoute);
+
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 app.listen(5000, () => {
-  console.log("server has running in port 5000!");
+  console.log("Server is listening on port 5000");
 });
